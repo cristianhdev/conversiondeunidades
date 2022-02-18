@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion de unidades</title>
+    <link rel="stylesheet" type="text/css" href="./src/animate.min.css">
+    <link rel="preload" href="styles.css" as="styles">
+    <link rel="preload" href="script.js" as="script">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body onload="init()">
+    <div class="logo">
+        <img src="./assets/Img/logo.png" alt="logo: escuela nueva">
+    </div>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <!--  <span class="close">&times;</span> -->
+            <div>
+                <video id="video-animacion-mobile" class="responsive" preload controls>
+                    <source src="./assets/videos/Maquinas.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+    </div>
+    <div class="contendor-bienvenida">
+        <div class="contenido-actividad-bienvenida">
+            <div class="contenedor-actividad">
+                <div class="bienvenida">
+                    <div class="contenedor-texto-bienvenida">
+                        <h1>En este aplicativo encontraremos una herramienta que nos ayudará a realizar conversiones
+                            entre unidades de:</h1>
+                        <div class="cuadro-unidades">
+                            <div>Longitud <img src="./assets/img/reglas.png" height="40" alt=""></div>                            
+                           
+                           
+                            
+                            <div>Temperatura <img src="./assets/img/temperatura.png" height="40" alt=""></div>
+                            <div> Volumen <img src="./assets/img/volumen.png" height="40" alt=""> </div>
+                            <div> Area <img src="./assets/img/area.png" height="40" alt=""></div>
+                           
+                            <div> Masa <img src="./assets/img/masa.png" height="40" alt=""> </div>
+                            <div> Velocidad <img src="./assets/img/carro.png" height="40" alt=""></div>
+                            
+                        </div>
+                        <p>
+                            Para utilizar el conversor elegimos la magnitud a la que le vamos a realizar la conversión y
+                            luego digitamos la cantidad en las unidades correspondientes y elegimos la opción convertir.
+                        </p>
+                    </div>
+                    <br>
+                    <div>
+                        <div class="contenedor-boton-continuar">
+                            <div class="buttonOpcion" onclick="continuar()">
+                                CONTINUAR
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="menu-unidades">
+                    <div class="cuadro-unidades-ejericio">
+                        <div id="menu1" onclick="mostrarMenu(0,this.id)" class="row img-longitud"></div>
+                        <div id="menu2" onclick="mostrarMenu(1,this.id)" class="row img-area"></div>
+                        <div id="menu3" onclick="mostrarMenu(2,this.id)" class="row img-volumen"></div>
+                        <div id="menu4" onclick="mostrarMenu(3,this.id)" class="row img-temperatura"></div>
+                        <div id="menu5" onclick="mostrarMenu(4,this.id)" class="row img-masa"></div>
+                        <div id="menu6" onclick="mostrarMenu(5,this.id)" class="row img-velocidad"></div>
+                    </div>
+                    <div id="unidades-longitud">
+                        <form action="">
+                            <div class="contenedor-inputs">
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="centimetros">
+                                                Centímetros
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/reglas.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+
+                                    <input type="text" name="centimetros" onfocus="limpiarInputs()" id="centimetros">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+
+                                        <div>
+                                            <label for="input2">
+                                                Milimetros
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/reglas.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="input2" onfocus="limpiarInputs()" id="milimetros">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+
+                                        <div>
+                                            <label for="input3">
+                                                Metros
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/reglas.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="input3" onfocus="limpiarInputs()" id="metros">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input4">
+                                                Pulgadas
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/reglas.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="input4" onfocus="limpiarInputs()" id="pulgadas">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input5">
+                                                Pies
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/reglas.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="input5" onfocus="limpiarInputs()" id="pies">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input6">
+                                                Yardas
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/reglas.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="input6" onfocus="limpiarInputs()" id="yardas">
+                                </div>
+
+                            </div>
+                        </form>
+                        <div class="contenedor-boton-continuar">
+                            <div class="buttonOpcion" onclick="atras()">
+                                Atras
+                            </div>
+                            <div class="buttonOpcion" onclick="calcular()">
+                                Calcular
+                            </div>
+                            <!-- <div class="buttonOpcion" onclick="limpiarInputs()">
+                                Limpiar
+                            </div> -->
+                        </div>
+                    </div>
+                    <div id="unidades-Area">
+                        <form action="">
+                            <div class="contenedor-inputs">
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="centimetros">
+                                                Centímetros
+                                                <sup>2</sup>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/area.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="centimetros" onfocus="limpiarInputs()"
+                                        id="centimetros_cuadrados">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input2">
+                                                Milimetros
+                                                <sup>2</sup>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/area.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="input2" onfocus="limpiarInputs()"
+                                        id="milimetros_cuadrados">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input3">
+                                                Metros
+                                                <sup>2</sup>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/area.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="input3" onfocus="limpiarInputs()" id="metros_cuadrados">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input4">
+                                                Pulgadas
+                                                <sup>2</sup>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/area.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="input4" onfocus="limpiarInputs()" id="pulgadas_cuadrados">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input5">
+                                                Pies
+                                                <sup>2</sup>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/area.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="input5" onfocus="limpiarInputs()" id="pies_cuadrados">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input6">
+                                                Yardas
+                                                <sup>2</sup>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/area.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="input6" onfocus="limpiarInputs()" id="yardas_cuadradas">
+                                </div>
+
+                            </div>
+                        </form>
+                        <div class="contenedor-boton-continuar">
+                            <div class="buttonOpcion" onclick="atras()">
+                                Atras
+                            </div>
+                            <div class="buttonOpcion" onclick="calcular()">
+                                Calcular
+                            </div>
+                            <!-- <div class="buttonOpcion" onclick="limpiarInputs()">
+                                Limpiar
+                            </div> -->
+                        </div>
+                    </div>
+                    <div id="unidades-Volumen">
+                        <form action="">
+                            <div class="contenedor-inputs">
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="centimetros">
+                                                Centímetros <sup>3</sup>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/volumen.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="centimetros" onfocus="limpiarInputs()"
+                                        id="centimetros_cubicos">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input2">
+                                                Milimetros
+                                                <sup>3</sup>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/volumen.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="input2" onfocus="limpiarInputs()" id="milimetros_cubicos">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input3">
+                                                Metros
+                                                <sup>3</sup>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/volumen.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="input3" onfocus="limpiarInputs()" id="metros_cubicos">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input4">
+                                                Pulgadas
+                                                <sup>3</sup>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/volumen.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="input4" onfocus="limpiarInputs()" id="pulgadas_cubicos">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input5">
+                                                Pies
+                                                <sup>3</sup>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/volumen.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="input5" onfocus="limpiarInputs()" id="pies_cubicos">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input6">
+                                                Yardas
+                                                <sup>3</sup>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/volumen.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="input6" onfocus="limpiarInputs()" id="yardas_cubicos">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input7">
+                                                Onzas
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/volumen.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="input7" onfocus="limpiarInputs()" id="onzas_cubicos">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input8">
+                                                Litros
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/volumen.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="input8" onfocus="limpiarInputs()" id="litros_cubicos">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input9">
+                                                Galones
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/volumen.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="input9" onfocus="limpiarInputs()" id="galones_cubicos">
+                                </div>
+
+                            </div>
+                        </form>
+                        <div class="contenedor-boton-continuar">
+                            <div class="buttonOpcion" onclick="atras()">
+                                Atras
+                            </div>
+                            <div class="buttonOpcion" onclick="calcular()">
+                                Calcular
+                            </div>
+                            <!-- <div class="buttonOpcion" onclick="limpiarInputs()">
+                                Limpiar
+                            </div> -->
+                        </div>
+                    </div>
+                    <div id="unidades-Temperatura">
+                        <form action="">
+                            <div class="contenedor-inputs">
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="centimetros">
+                                                °Fahrenheit
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/temperatura.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="centimetros" onfocus="limpiarInputs()" id="fahrenheit">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input2">
+                                                °Celcius
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/temperatura.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="input2" onfocus="limpiarInputs()" id="celcius">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input3">
+                                                °Kelvin
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/temperatura.png" class="responsive-iconos" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="input3" onfocus="limpiarInputs()" id="kelvin">
+                                </div>
+                            </div>
+                        </form>
+                        <div class="contenedor-boton-continuar">
+                            <div class="buttonOpcion" onclick="atras()">
+                                Atras
+                            </div>
+                            <div class="buttonOpcion" onclick="calcular()">
+                                Calcular
+                            </div>
+                            <!--  <div class="buttonOpcion" onclick="limpiarInputs()">
+                                Limpiar
+                            </div> -->
+                        </div>
+                    </div>
+                    <div id="unidades-Masa">
+                        <form action="">
+                            <div class="contenedor-inputs">
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="centimetros">
+                                                Kilogramos
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/masa.png" height="40" class="responsive-iconos-masa" alt="">
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="centimetros" onfocus="limpiarInputs()"
+                                        id="kilogramos_masa">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input2">
+                                                 Gramos
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/masa.png"  height="40" class="responsive-iconos-masa" alt="">
+                                        </div>
+                                    </div>
+                                    
+                                    <input type="text" name="input2" onfocus="limpiarInputs()" id="gramos_masa">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input3">
+                                                 Onzas
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/masa.png" height="40" class="responsive-iconos-masa" alt="">
+                                        </div>
+                                    </div>
+                                   
+                                    <input type="text" name="input3" onfocus="limpiarInputs()" id="onzas_masa">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input4">
+                                                 Libras
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/masa.png" height="40" class="responsive-iconos-masa" alt="">
+                                        </div>
+                                    </div>
+                                   
+                                   
+                                    <input type="text" name="input4" onfocus="limpiarInputs()" id="libras_masa">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input5">
+                                                 Toneladas
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/masa.png" height="40" class="responsive-iconos-masa" alt="">
+                                        </div>
+                                    </div>
+                                   
+                                    <input type="text" name="input5" onfocus="limpiarInputs()" id="toneladas_masa">
+                                </div>
+                            </div>
+                        </form>
+                        <div class="contenedor-boton-continuar">
+                            <div class="buttonOpcion" onclick="atras()">
+                                Atras
+                            </div>
+                            <div class="buttonOpcion" onclick="calcular()">
+                                Calcular
+                            </div>
+                            <!-- <div class="buttonOpcion" onclick="limpiarInputs()">
+                                Limpiar
+                            </div> -->
+                        </div>
+                    </div>
+                    <div id="unidades-Velocidad">
+                        <form action="">
+                            <div class="contenedor-inputs">
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="centimetros">
+                                                 Metros/seg
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/carro.png" class="responsive-iconos-carro" alt="">
+                                        </div>
+                                    </div>
+                                   
+                                    <input type="text" name="centimetros" onfocus="limpiarInputs()" id="metros_seg">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input2">
+                                                 Pulgada/seg
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/carro.png" class="responsive-iconos-carro" alt="">
+                                        </div>
+                                    </div>
+                                   
+                                    <input type="text" name="input2" onfocus="limpiarInputs()" id="pulgada_seg">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input3">
+                                                 Pies/seg
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/carro.png" class="responsive-iconos-carro" alt="">
+                                        </div>
+                                    </div>
+                                  
+                                    <input type="text" name="input3" onfocus="limpiarInputs()" id="pies_seg">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input4">
+                                                 Pies/min
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/carro.png" class="responsive-iconos-carro" alt="">
+                                        </div>
+                                    </div>
+                                    
+                                    <input type="text" name="input4" onfocus="limpiarInputs()" id="pies_min">
+                                </div>
+                                <div>
+                                    <div class="input-format">
+                                        <div>
+                                            <label for="input5">
+                                                 Pies/hora
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/img/carro.png" class="responsive-iconos-carro" alt="">
+                                        </div>
+                                    </div>
+                                   
+                                    <input type="text" name="input5" onfocus="limpiarInputs()" id="pies_hora">
+                                </div>
+                            </div>
+                        </form>
+                        <div class="contenedor-boton-continuar">
+                            <div class="buttonOpcion" onclick="atras()">
+                                Atras
+                            </div>
+                            <div class="buttonOpcion" onclick="calcular()">
+                                Calcular
+                            </div>
+                            <!--  <div class="buttonOpcion" onclick="limpiarInputs()">
+                                Limpiar
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="./src/sounds.js"></script>
+    <script type="text/javascript" src="./src/conversionunidades.js"></script>
+</body>
+
+</html>
