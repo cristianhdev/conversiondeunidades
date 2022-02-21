@@ -70,11 +70,22 @@ function ocultarOpciones() {
 
 function continuar() {
     document.querySelector('.bienvenida').style.display = "none";
+    if (verifyMobile()) {
+        document.querySelector('.titulo').style.marginTop = "420px";
+    } else {
+        document.querySelector('.titulo').style.marginTop = "12px";
+    }
+
     document.querySelector('#menu-unidades').style.display = "block";
 }
 
 function atras() {
     document.querySelector('.bienvenida').style.display = "block";
+    if (verifyMobile()) {
+        document.querySelector('.titulo').style.marginTop = "145px";
+    } else {
+        document.querySelector('.titulo').style.marginTop = "12px";
+    }
     document.querySelector('#menu-unidades').style.display = "none";
     limpiarInputs()
     menuactual = '#unidades-longitud'
@@ -90,8 +101,8 @@ function calcular() {
 
     if (inputNoEmpy.length >= 1) {
         Array.from(inputs).forEach(input => {
-            document.querySelector(`#${input.id}`).style.boxSizing="border-box";
-            document.querySelector(`#${input.id}`).style.border="2px solid #ccc";
+            document.querySelector(`#${input.id}`).style.boxSizing = "border-box";
+            document.querySelector(`#${input.id}`).style.border = "2px solid #ccc";
         })
         let inputEmpy = Array.from(inputs).filter((input) => {
             return input.value == ""
@@ -112,7 +123,7 @@ function calcular() {
         let inputs = document.querySelectorAll(`${menuactual} div input`)
         Array.from(inputs).forEach(input => {
             console.log(document.querySelector(`#${input.id}`).style.border);
-            document.querySelector(`#${input.id}`).style.border="1px solid red"
+            document.querySelector(`#${input.id}`).style.border = "1px solid red"
         })
     }
 
