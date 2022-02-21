@@ -111,7 +111,7 @@ function calcular() {
         let fn_name = inputNoEmpy[0].id,
             fn = eval("To" + fn_name);
 
-        let resultado = Object.values(fn(23))
+        let resultado = Object.values(fn(inputNoEmpy[0].value))
         resultado = resultado.filter((value) => {
             return value != null
         })
