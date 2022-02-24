@@ -117,8 +117,6 @@ function calcular() {
         return input.value != ""
     })
 
-    console.log(Array.from(inputs))
-
     if (inputNoEmpy.length >= 1) {
         Array.from(inputs).forEach(input => {
             document.querySelector(`#${input.id}`).style.boxSizing = "border-box";
@@ -139,7 +137,7 @@ function calcular() {
             return value != null
         }) */
 
-        console.log(resultado)
+    
 
         inputEmpy.forEach((input, index) => {
             document.querySelector(`#${input.id}`).value = resultado[input.id]
