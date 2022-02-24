@@ -15,6 +15,8 @@ let contenedorMenus = [
 
 
 let menuactual = '#unidades-longitud'
+let prefijo = ""
+
 
 function init() {
 
@@ -39,6 +41,24 @@ function btnOutMenu() {
 
 
 function mostrarMenu(id, element) {
+
+    switch (id) {
+        case 1:
+            prefijo = ""
+            break;
+        case 2:
+            prefijo = "_cuadrados"
+            break;
+
+        case 3:
+            prefijo = "_cubico"
+            break;
+
+        default:
+            break;
+    }
+
+
     ocultarOpciones()
     removerMenuActive()
     limpiarInputsGlobal()
@@ -111,18 +131,23 @@ function calcular() {
         let fn_name = inputNoEmpy[0].id,
             fn = eval("To" + fn_name);
 
-        let resultado = Object.values(fn(inputNoEmpy[0].value))
-        resultado = resultado.filter((value) => {
+
+
+
+        let resultado = fn(inputNoEmpy[0].value)
+        /* resultado = resultado.filter((value) => {
             return value != null
-        })
+        }) */
+
+        console.log(resultado)
 
         inputEmpy.forEach((input, index) => {
-            document.querySelector(`#${input.id}`).value = resultado[index]
+            document.querySelector(`#${input.id}`).value = resultado[input.id]
         });
     } else {
         let inputs = document.querySelectorAll(`${menuactual} div input`)
         Array.from(inputs).forEach(input => {
-            console.log(document.querySelector(`#${input.id}`).style.border);
+
             document.querySelector(`#${input.id}`).style.border = "1px solid red"
         })
     }
