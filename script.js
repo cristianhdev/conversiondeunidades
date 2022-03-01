@@ -137,6 +137,8 @@ function calcular() {
             return value != null
         }) */
 
+
+        console.log(resultado)
     
 
         inputEmpy.forEach((input, index) => {

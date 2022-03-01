@@ -355,7 +355,7 @@ function Togalones_cubicos(valor) {
  }
  * @returns 
  */
-function Tofahrenheit(valor) {
+function Tofarenhweit(valor) {
     conversion_unidades_temperatura.farenhweit = null
     conversion_unidades_temperatura.celcius = (valor - 32) * (5 / 9)
     conversion_unidades_temperatura.kelvin = (valor - 32) * (5 / 9) + 273.15
